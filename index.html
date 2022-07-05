@@ -1,190 +1,110 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Utkarsh Ojha</title>
+        <link rel = "icon" type = "image/png" href = "resources/uwmlogo.png">
+    </head>
+    <body>
+        <style>
+            img {
+                width: 150px;
+                border-radius: 6px;
+                border: 1px solid #555;
+                margin-left: 20px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                margin-top: 80px;
+            }
+            h1{
+                font-family: Helvetica, sans-serif;
+                font-size: 40px;
+                font-weight: 100;
+                margin-left: 200px;
+                margin-top: -210px;
+                color: rgb(77, 77, 77);
+            }
+            h1.projects{
+                font-family: Helvetica, sans-serif;
+                font-size: 40px;
+                font-weight: 100;
+                margin-left: 20px;
+                margin-top: 70px;
+                color: rgb(77, 77, 77);
+            }
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61135638-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+            p.intro{
+                font-family: Helvetica, sans-serif;
+                color: dimgray;
+                margin-left: 200px;
+                margin-right: 20px;
+                
+            }
+            p.proj_desc{
+                font-family: Helvetica, sans-serif;
+                color: dimgray;
+                margin-left: 0px;     
+                margin-right: 20px;
+            }
+            li{
+                font-family: Helvetica, sans-serif;
+                color: dimgray;
+                margin-left: 0px;
+                
+            }
+            .center{
+                background-color: rgb(235, 239, 247);
+                width: 1000px;
+                height: 1120px;
+                margin: auto;
+                border: 1px solid #555;
+                border-radius: 6px; 
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            a:link {
+                text-decoration: none;
+                color: rgb(104, 148, 238);
+            }
+            a:visited {
+                color: rgb(104, 148, 238);
+            }
+            a:hover {
+                color: rgb(143, 142, 142);
+            }
+        </style>
+        <div class="center">
+        
+            <img src="images/photo.jpg" alt="c'mon, check the path browski">
+            <h1>Utkarsh Ojha</h1>
+            <p class="intro"> CS PhD student &bull; University of Wisconsin-Madison</p>
+            <p class="intro"><a href = "mailto:uojha@wisc.edu">Email</a> &bull; <a href="https://scholar.google.com/citations?user=QGdSgfoAAAAJ&hl=en">Google scholar</a> &bull; <a href="https://github.com/utkarshojha">Github</a> &bull; <a href="https://drive.google.com/file/d/1yzko1zXRuazaQOiYLH4cJcq0vpDd7sIB/view?usp=sharing">CV</a> &bull; <a href="https://twitter.com/utkarshojha12">Twitter</a></p>
+            <p class="intro">I am a third year PhD student at UW Madison, working with <a href="https://pages.cs.wisc.edu/~yongjaelee/">Dr. Yong Jae Lee</a>. My past work has explored generative models for computer vision tasks. In general, my philosophy is to view this class of algorithms as a tool to help us go outside the training distribution, and generate something we don't already have. Following is a list of the projects I've done so far:</p>
+            <br>
+            <ul>
+                <li> <a href="https://arxiv.org/abs/2205.16004">What Knowledge Gets Distilled in Knowledge Distillation?</a> &bull; arXiv 2022</li>
+                <p class="proj_desc">When a student tries to mimic a teacher whle classifying an image, we see an improvement in its performance. But what happens in the background? Does the student really inherit teacher-specific properties which it would otherwise not have obtained? What are the ways in which we can study those properties? In these paper, we attempt to shed some light on this <i>dark knowledge</i> that the student inherits during the distillation process.  </p>
+                <!-- <p class="proj_desc"><b>Authors:</b> Utkarsh Ojha, Yuheng Li, Yong Jae Lee</p>
+                <p class="proj_desc"><b>Publication:</b> arXiv 2022</p> -->
 
-    gtag('config', 'UA-61135638-2');
-  </script>
-
-  <title>Yuheng Li</title>
-
-  <meta name="author" content="Yuheng Li">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-
-<body>
-  <div class="container" style="max-width: 930px;">
-    <div class="section">
-      <!-- <div id="profile" class="box" style="width: 100%"> -->
-      <div id="profile" class="box" style="width: 780px;">
-        <p style="text-align:center">
-          <name>Haotian Liu</name>
-        </p>
-        <p>
-          Hi there, I am a third-year computer science Ph.D. student at University of Wisconsin-Madison, advised by <a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a>.
-        </p>
-        <p>
-          Before this, I obtained my bachler's degree (with honor) at Zhejiang University. I at that time researched under the supervision of <a href="http://www.cad.zju.edu.cn/home/jin/" target="_blank">Prof. Xiaogang Jin</a> and <a href="https://person.zju.edu.cn/en/wufei" target="_blank">Prof. Fei Wu</a>.
-        </p>
-        <p style="text-align:center">
-          <a href="mailto:liuhaotian.cn@gmail.com">Email</a> &nbsp;/&nbsp;
-          <a href="files/cv.pdf">CV</a> &nbsp;/&nbsp;
-          <a href="https://github.com/haotian-liu">GitHub</a> &nbsp;/&nbsp;
-          <!-- <a href="files/bio.txt">Biography</a> &nbsp;/&nbsp; -->
-          <a href="https://scholar.google.com/citations?user=Xo6wfnQAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
-          <a href="https://www.linkedin.com/in/haotian-liu-4b60a2188/">LinkedIn</a>
-        </p>
-      </div>
-      <div class="box" style="width: 150px; float: left; padding: 50px 0 0 0;">
-        <img id="profile_photo" alt="profile photo" src="images/photo.jpg">
-      </div>
-    </div>
-    <div class="section">
-      <div class="box">
-        <heading>Research</heading>
-        <p>
-          I am generally interested computer vision and machine learning, especially visual perception, understanding and generation. And I focus on building machines that efficiently understand the visual world the same way as humans do.
-        </p>
-      </div>
-    </div>
-    <div class="section">
-
-      <div class="container">
-        <div class="box left">
-          <img src='images/elevater2022.jpg'>
+                <li> <a href="https://utkarshojha.github.io/few-shot-gan-adaptation/">Few-shot Image Generation via Cross-domain Correspondence</a> &bull; CVPR 2021</li>
+                <p class="proj_desc">If you have 1000s of images from a domain (e.g. human faces), you can typically train a big neural network to generate images resembling its properties. What if you don't have that luxury? What if you only have, say 10 paintings from an artist, and want to <i>generate</i> more? That is the goal of this work: model a bigger distribution of a domain using extremely few training images from it.</p>
+                <!-- <p class="proj_desc"><b>Authors:</b> Utkarsh Ojha, Yijun Li, Jingwan Lu, Alexei A. Efros, Yong Jae Lee, Eli Shechtman, Richard Zhang</p>
+                <p class="proj_desc"><b>Publication:</b> Computer Vision and Pattern Recognition 2021</p> -->
+                <li> <a href="https://utkarshojha.github.io/inter-domain-gan/">Generating Furry Cars: Disentangling Object Shape and Appearance across Multiple Domains</a> &bull; ICLR 2021</li>
+                <p class="proj_desc">Let's say you have data which contains images from not one, but multiple object categories (e.g. dogs and cars). Can you learn a generative model which can still disentangle object shape and its appearance? We proposed a method for this task, where upon learning such a model, we can take the appearance of a furry dog, and transfer it onto a car to create a new species of furry cars.</p>                 
+                <!-- <p class="proj_desc">FineGAN (see below) is a method that works well in terms of disentangling the object shape from its appearance <i>within a domain</i>, e.g. transferring the appearance of a sparrow (a bird) onto a duck (another bird). However, it starts having issues when the training data contains more than one object category (e.g. birds and cars). In this project, we proposed a much more general method to learn disentangled representations of object shape and appearance. You could take the appearance of a furry dog, and transfer it onto a car (a completely different domain) to generate a brand new species of furry car.</p> -->
+                <!-- <p class="proj_desc"><b>Authors:</b> Utkarsh Ojha, Krishna Kumar Singh, Yong Jae Lee</p>
+                <p class="proj_desc"><b>Publication:</b> International Conference on Learning Representations 2021</p> -->
+                <li> <a href="https://utkarshojha.github.io/elastic-infogan/">Elastic-InfoGAN: Unsupervised Disentangled Representation Learning in Class-Imbalanced Data</a> &bull; NeurIPS 2020</li>
+                <p class="proj_desc">When your data has discrete object categories, a typical assumption for the discrete factors is a uniform multinomial distribution. What happens when the data has a class imbalance? We highlight the shortcomings of existing work in such scenarios, and propose a method which disentangles the discrete factor much more accurately without access to the ground-truth distribution.</p>
+                <!-- <p class="proj_desc"><b>Authors:</b> Utkarsh Ojha, Krishna Kumar Singh, Yong Jae Lee</p>
+                <p class="proj_desc"><b>Publication:</b> Neural Information  2021</p> -->
+                <li> <a href="https://github.com/Yuheng-Li/MixNMatch">MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation</a> &bull; CVPR 2020</li>
+                <p class="proj_desc">Let's say you captured two pictures, one of a red sparrow, and another of a white swan. You're feeling creative, and want to imagine how that white swan would look with that red sparrow's appearance over it. MixNMatch does precisely that: it takes in <i>real</i> images, and extracts the object's shape and appearance independently, and combine them to create a hybrid bird: a red swan.</p>
+                <li> <a href="http://krsingh.cs.ucdavis.edu/krishna_files/papers/finegan/index.html">FineGAN: Unsupervised Hierarchical Disentanglement for Fine-Grained Object Generation and Discovery</a> &bull; CVPR 2019</li>
+                <p class="proj_desc">Imagine a collection of natural birds. The goal in this project was to have a model which generates realistic images, and also learns to control its different properties. For example, the proposed method learns to control object shape, appearance, pose, background - without any supervision. We could now borrow the appearance of a colorful hummingbird, and put it over the body of a seagull. </p>
+                <li> <a href="https://github.com/val-iisc/nag">NAG: Network for Adversary Generation</a> &bull; CVPR 2018</li>
+                <p class="proj_desc">Universal adversarial perturbation describes an image-agnostic noise pattern, which when added to any natural image will fool a neural network based classifier. We proposed a method to generate not one, but a distribution of such noise images for a neural network. These were much stronger in terms of fooling not just the targeted classifier, but also many unseen ones.</p>
+                
+            </ul>
         </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2204.08790" target="_blank">
-              <papertitle>ELEVATER: A Benchmark and Toolkit for Evaluating Language-Augmented Visual Models</papertitle>
-          </a>
-          <br>
-          Chunyuan Li*, <strong>Haotian Liu</strong>*, Liunian Harold Li, Pengchuan Zhang, Jyoti Aneja, Jianwei Yang, Ping Jin, Yong Jae Lee, Houdong Hu, Zicheng Liu, and Jianfeng Gao
-          <br>
-          <em>arXiv</em> 2022
-          <br>
-          (*equal contribution)
-          <br>
-          [<a href="https://computer-vision-in-the-wild.github.io/ELEVATER/" target="_blank">project page</a>] [<a href="https://arxiv.org/abs/2204.08790" target="_blank">arXiv</a>] [<a href="https://computer-vision-in-the-wild.github.io/ELEVATER/download.html" target="_blank">toolkit</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="clear"></div>
-
-      <div class="container">
-        <div class="box left">
-          <img src='images/maskpoint2022.png'>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2203.11183" target="_blank">
-              <papertitle>Masked Discrimination for Self-Supervised Learning on Point Clouds</papertitle>
-          </a>
-          <br>
-          <strong>Haotian Liu</strong>, Mu Cai, and Yong Jae Lee
-          <br>
-          <em>arXiv</em> 2022
-          <br>
-          [<a href="https://arxiv.org/abs/2203.11183" target="_blank">arXiv</a>] [<a href="https://github.com/haotian-liu/MaskPoint" target="_blank">code</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="clear"></div>
-
-      <!-- <div class="container">
-        <div class="box left">
-          <img src='images/instedge2022.jpg'>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2204.02898" target="_blank">
-              <papertitle>End-to-End Instance Edge Detection</papertitle>
-          </a>
-          <br>
-          Xueyan Zou, <strong>Haotian Liu</strong>, and Yong Jae Lee
-          <br>
-          <em>arXiv</em> 2022
-          <br>
-          [<a href="https://arxiv.org/abs/2204.02898" target="_blank">arXiv</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="clear"></div> -->
-
-      <div class="container">
-        <div class="box left">
-          <img src='images/icra2021.jpg'>
-        </div>
-        <div class="box right">
-          <a href="https://github.com/haotian-liu/yolact_edge" target="_blank">
-              <papertitle>YolactEdge: Real-time Instance Segmentation on the Edge</papertitle>
-          </a>
-          <br>
-          <strong>Haotian Liu</strong>*, Rafael A. Rivera-Soto*, Fanyi Xiao, and Yong Jae Lee
-          <br>
-          <em>IEEE International Conference on Robotics and Automation</em> (<strong>ICRA</strong>), 2021
-          <br>
-          (*equal contribution)
-          <br>
-          [<a href="https://arxiv.org/abs/2012.12259" target="_blank">arXiv</a>] [<a href="https://github.com/haotian-liu/yolact_edge" target="_blank">code</a>] [<a href="https://www.youtube.com/watch?v=-JgTd-lrsqs" target="_blank">talk</a>] [<a href="https://www.youtube.com/watch?v=GBCK9SrcCLM" target="_blank">demo</a>] [<a href="https://colab.research.google.com/drive/1Mzst4q4Y-SQszIHhlEv1CkT4hwja4GNw?usp=sharing" target="_blank">Colab Notebook</a>] [<a href="https://colab.research.google.com/drive/1nEZAYnGbF7VetqltAlUTyAGTI71MvPPF?usp=sharing" target="_blank">Colab Notebook (TensorRT)</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="clear"></div>
-
-      <div class="container">
-        <div class="box left">
-          <img src='images/iccv2019.jpg'>
-        </div>
-        <div class="box right">
-          <a href="/files/iccv2019_disentangle.pdf">
-              <papertitle>Identity from here, Pose from there: Self-supervised Disentanglement and Generation of Objects using Unlabeled Videos</papertitle>
-          </a>
-          <br>
-          Fanyi Xiao, <strong>Haotian Liu</strong>, and Yong Jae Lee
-          <br>
-          <em>Proceedings of the IEEE International Conference on Computer Vision</em> (<strong>ICCV</strong>), 2019 <!--&nbsp; <font color="red"><strong>(Oral Presentation)</strong></font>-->
-          <br>
-          [<a href="/files/iccv2019_disentangle.pdf">pdf</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="clear"></div>
-
-      <div class="container">
-        <div class="box left">
-          <img src='images/jclp2018.jpg'>
-        </div>
-        <div class="box right">
-          <a href="/files/jclp2018.pdf">
-            <papertitle>Operation strategy of public building: Implications from trade-off between carbon emission and occupant satisfaction.</papertitle>
-          </a>
-          <br>
-          Yimeng Chen, <strong>Haotian Liu</strong>, and Lei Shi
-          <br>
-          <em>Journal of Cleaner Production</em> (<strong>JCLP</strong>), 2018
-          <br>
-          [<a href="/files/jclp2018.pdf">pdf</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</body>
+    </body>
 </html>
