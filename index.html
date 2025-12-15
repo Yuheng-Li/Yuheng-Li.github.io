@@ -29,6 +29,23 @@
         #profile_photo:hover {
             content: url('images/yuheng-and-mam.jpg');
         }
+        
+        /* Paper tabs styling */
+        .paper-tabs {
+            display: inline;
+            margin-left: 10px;
+            font-size: 15px;
+        }
+        
+        .tab-link {
+            cursor: pointer;
+            color: #999;
+            text-decoration: none;
+        }
+        
+        .tab-separator {
+            color: #000;
+        }
     </style>
 </head>
 
@@ -123,11 +140,96 @@
   </center>
     <div class="section">
       <heading>Research</heading>
+      <span class="paper-tabs">
+        [ <span class="tab-link active" data-filter="selected">Selected</span>
+        <span class="tab-separator"> | </span>
+        <span class="tab-link" data-filter="all">All</span> ]
+      </span>
+      <br
       <br>
-      <br>
-      <!-- <br> -->
-
-      <div class="container">
+            <!-- <br> -->
+        <div class="container paper-item" data-selected="true">
+          <div class="box left">
+            <a href='https://thaoshibe.github.io/relsim/'>
+            <img src='./images/relsim.png'></a>
+          </div>
+          <div class="box right">
+            <a href="https://arxiv.org/abs/2512.07833" target="_blank">
+                <papertitle>Relational Visual Similarity</papertitle>
+            </a>
+            <br>
+            Thao Nguyen, Sicheng Mo, Krishna Kumar Singh, Yilin Wang, Jing Shi, Nicholas Kolkin, Eli Shechtman, Yong Jae Lee, <strong>Yuheng Li</strong>
+            <br>
+            <em>arXiv</em> (<strong>arXiv</strong>), 2025
+            <br>
+            [<a href="https://thaoshibe.github.io/relsim/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2512.07833" target=&ldquo;blank&rdquo;>Paper</a>, <a href="https://github.com/thaoshibe/relsim" target=&ldquo;blank&rdquo;>Code</a>]
+            <p></p>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <!-- <br> -->
+            <!-- <br> -->
+        <div class="container paper-item" data-selected="true">
+          <div class="box left">
+            <a href='https://sichengmo.github.io/GroupDiff/'>
+            <img src='https://sichengmo.github.io/GroupDiff/assets/teaser.jpg'></a>
+          </div>
+          <div class="box right">
+            <a href="https://arxiv.org/abs/2512.10954" target="_blank">
+                <papertitle>Group Diffusion: Enhancing Image Generation by Unlocking Cross-Sample Collaboration</papertitle>
+            </a>
+            <br>
+            Sicheng Mo, Thao Nguyen, Richard Zhang, Nick Kolkin, Siddharth Srinivasan Iyer, Eli Shechtman, Krishna Kumar Singh, Yong Jae Lee, Bolei Zhou, <strong>Yuheng Li</strong>
+            <br>
+            <em>arXiv</em> (<strong>arXiv</strong>), 2025
+            <br>
+            [<a href="https://sichengmo.github.io/GroupDiff/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2512.10954" target=&ldquo;blank&rdquo;>Paper</a>]
+            <p></p>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <!-- <br> -->
+        <div class="container paper-item" data-selected="false">
+          <div class="box left">
+            <a href='https://nupurkmr9.github.io/npedit/'>
+            <img src='./images/np-edit.png'></a>
+          </div>
+          <div class="box right">
+            <a href="https://arxiv.org/abs/2510.14978" target="_blank">
+                <papertitle>Learning an Image Editing Model without Image Editing Pairs</papertitle>
+            </a>
+            <br>
+            Nupur Kumari, Sheng-Yu Wang, Nanxuan Zhao, Yotam Nitzan, <strong>Yuheng Li</strong>, Krishna Kumar Singh, Richard Zhang, Eli Shechtman, Jun-Yan Zhu, Xun Huang
+            <br>
+            <em>arXiv</em> (<strong>arXiv</strong>), 2025
+            <br>
+            [<a href="https://nupurkmr9.github.io/npedit/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2510.14978" target=&ldquo;blank&rdquo;>Paper</a>]
+            <p></p>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <!-- <br> -->
+        <div class="container paper-item" data-selected="false">
+          <div class="box left">
+            <a href='https://danielchyeh.github.io/x-planner/'>
+            <img src='./images/x-planner.png'></a>
+          </div>
+          <div class="box right">
+            <a href="https://arxiv.org/abs/2507.05259" target="_blank">
+                <papertitle>Beyond Simple Edits: X-Planner for Complex Instruction-Based Image Editing</papertitle>
+            </a>
+            <br>
+            Chun-Hsiao Yeh, Yilin Wang, Nanxuan Zhao, Richard Zhang, <strong>Yuheng Li</strong>, Yi Ma, Krishna Kumar Singh
+            <br>
+            <em>AAAI Conference on Artificial Intelligence</em> (<strong>AAAI</strong>), 2025
+            <br>
+            [<a href="https://danielchyeh.github.io/x-planner/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2507.05259" target=&ldquo;blank&rdquo;>Paper</a>]
+            <p></p>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <!-- <br> -->
+      <div class="container paper-item" data-selected="true">
         <div class="box left">
           <a href='https://sichengmo.github.io/XFusion/'>
           <img src='./images/xfusion.png'></a>
@@ -149,8 +251,28 @@
         </div>
       </div>
       <div class="clear"></div>
-
-      <div class="container">
+      <!-- <br> -->
+      <div class="container paper-item" data-selected="false">
+        <div class="box left">
+          <a href='https://glitchinthematrix.github.io/vins/'>
+          <img src='https://krsingh.cs.ucdavis.edu/krishna_files/paper_images/vins_teaser.png'></a>
+        </div>
+        <div class="box right">
+          <a href="https://arxiv.org/abs/2503.17539" target="_blank">
+              <papertitle>Generating, Fast and Slow: Scalable Parallel Video Generation with Video Interface Networks</papertitle>
+          </a>
+          <br>
+          Bhishma Dedhia, David Bourgin, Krishna Kumar Singh, <strong>Yuheng Li</strong>, Yan Kang, Zhan Xu, Niraj K. Jha, Yuchen Liu
+          <br>
+          <em>IEEE International Conference on Computer Vision</em>, (<strong>ICCV</strong>), 2025
+          <br>
+          [<a href="https://glitchinthematrix.github.io/vins/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2503.17539" target=&ldquo;blank&rdquo;>Paper</a>]
+          <p></p>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <!-- <br> -->
+      <div class="container paper-item" data-selected="true">
         <div class="box left">
           <a href='https://thaoshibe.github.io/YoChameleon/'>
           <img src='./images/yochameleon.png'></a>
@@ -169,47 +291,7 @@
         </div>
       </div>
       <div class="clear"></div>
-
-      <div class="container">
-        <div class="box left">
-          <a href='https://glitchinthematrix.github.io/vins/'>
-          <img src='https://krsingh.cs.ucdavis.edu/krishna_files/paper_images/vins_teaser.png'></a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2503.17539" target="_blank">
-              <papertitle>Generating, Fast and Slow: Scalable Parallel Video Generation with Video Interface Networks</papertitle>
-          </a>
-          <br>
-          Bhishma Dedhia, David Bourgin, Krishna Kumar Singh, <strong>Yuheng Li</strong>, Yan Kang, Zhan Xu, Niraj K. Jha, Yuchen Liu
-          <br>
-          arXiv, 2025
-          <br>
-          [<a href="https://glitchinthematrix.github.io/vins/" target=&ldquo;blank&rdquo;>ProjectPage</a>,<a href="https://arxiv.org/abs/2503.17539" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-<!--       <div class="container">
-        <div class="box left">
-          <a href='https://thaoshibe.github.io/YoChameleon/'>
-          <img src='./images/yochameleon.png'></a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2406.09400" target="_blank">
-              <papertitle>Interpolating Video-LLMs: Toward Longer-sequence LMMs in a Training-free Manner</papertitle>
-          </a>
-          <br>
-          Yuzhang Shang, Bingxin Xu, Weitai Kang, Mu Cai, <strong>Yuheng Li</strong>, Zehao Wen, Zhen Dong, Kurt Keutzer, Yong Jae Lee, Yan Yan
-          <br>
-          arXiv, 2024
-          <br>
-          [<a href="https://arxiv.org/abs/2409.12963" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div> -->
-
-      <div class="container">
+      <div class="container paper-item" data-selected="true">
         <div class="box left">
           <a href='https://thaoshibe.github.io/YoLLaVA/'>
           <img src='./images/yollava.png'></a>
@@ -228,12 +310,30 @@
           <!-- <br> -->
         </div>
       </div>
+
+      <!-- <br> -->
       <div class="clear"></div>
+      <div class="container paper-item" data-selected="false">
+        <div class="box left">
+          <a href='https://yuheng-li.github.io/LLaVA-score/'><img src='./images/llava-score.png'></a>
+        </div>
+        <div class="box right">
+          <a href="https://arxiv.org/abs/2503.17539" target="_blank">
+              <papertitle>Removing Distributional Discrepancies in Captions Improves Image-Text Alignment</papertitle>
+          </a>
+          <br>
+          <strong>Yuheng Li</strong>, Haotian Liu, Mu Cai, Yijun Li, Eli Shechtman, Zhe Lin, Yong Jae Lee, Krishna Kumar Singh,
+          <br>
+          <em>European Conference on Computer Vision</em>, (<strong>ECCV</strong>), 2024
+          <br>
+          [<a href="https://yuheng-li.github.io/LLaVA-score/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2410.00905" target=&ldquo;blank&rdquo;>Paper</a>]
+          <p></p>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <!-- <br> -->
 
-
-
-
-      <div class="container">
+      <div class="container paper-item" data-selected="true">
         <div class="box left">
           <img src='https://pages.cs.wisc.edu/~yongjaelee/IMAGES/llava_v15.jpeg'>
         </div>
@@ -255,7 +355,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='https://pages.cs.wisc.edu/~yongjaelee/IMAGES/edit-one-for-all.jpg'>
         </div>
@@ -276,7 +376,7 @@
       <div class="clear"></div>
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/pacgen.png'>
         </div>
@@ -295,7 +395,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/svg_llm.png'>
         </div>
@@ -316,7 +416,7 @@
       <div class="clear"></div>
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/vii.png'>
         </div>
@@ -340,7 +440,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/kd.png'>
         </div>
@@ -362,7 +462,7 @@
  
 
       
-      <div class="container">
+      <div class="container paper-item" data-selected="true">
         <div class="box left">
           <img src='images/gligen.png'>
         </div>
@@ -388,7 +488,7 @@
       <div class="clear"></div>
       
       
-      <div class="container">
+      <div class="container paper-item" data-selected="true">
         <div class="box left">
           <img src='images/fake_detection.png'>
         </div>
@@ -412,7 +512,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/anti-aliasing.gif'>
         </div>
@@ -435,7 +535,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/contrasfill.png'>
         </div>
@@ -457,7 +557,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/giraffehd.png'>
         </div>
@@ -482,7 +582,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/collageGAN.png'>
         </div>
@@ -507,7 +607,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/partgan.png'>
         </div>
@@ -530,7 +630,7 @@
 
 
 
-      <div class="container">
+      <div class="container paper-item" data-selected="false">
         <div class="box left">
           <img src='images/MixNMatch.png'>
         </div>
@@ -560,5 +660,45 @@
   </div>
 </center>
 </div>
+
+<script>
+  // Paper filtering functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const paperItems = document.querySelectorAll('.paper-item');
+    
+    function filterPapers(filter) {
+      paperItems.forEach(paper => {
+        const isSelected = paper.getAttribute('data-selected') === 'true';
+        
+        if (filter === 'all') {
+          paper.style.display = 'block';
+        } else if (filter === 'selected' && isSelected) {
+          paper.style.display = 'block';
+        } else if (filter === 'selected' && !isSelected) {
+          paper.style.display = 'none';
+        }
+      });
+    }
+    
+    tabLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        // Remove active class from all links
+        tabLinks.forEach(l => l.classList.remove('active'));
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Filter papers
+        const filter = this.getAttribute('data-filter');
+        filterPapers(filter);
+      });
+    });
+    
+    // Initialize with selected papers shown
+    filterPapers('selected');
+  });
+</script>
+
 </body>
 </html>

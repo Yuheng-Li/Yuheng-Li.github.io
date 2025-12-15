@@ -173,3 +173,28 @@
   span.highlight {
     background-color: #ffffd0;
   }
+
+  .paper-tabs {
+    display: inline;
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  .tab-link {
+    color: #999;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .tab-link:hover {
+    color: #f09228;
+    text-decoration: none;
+  }
+
+  .tab-link.active {
+    color: #1772d0;
+  }
+
+  .tab-separator {
+    color: #000;
+  }
