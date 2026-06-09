@@ -1,728 +1,864 @@
-
 <!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yuheng Li</title>
+  <meta name="author" content="Yuheng Li">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:description" content="Personal webpage of Yuheng Li." />
+  <link rel="icon" type="image/png" href="./images/adobe-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,300;9..144,1,400;9..144,1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61135638-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-61135638-2');
   </script>
 
-  <title>Yuheng Li</title>
+  <style>
+    :root {
+      --bg:           #ffffff;
+      --surface:      #ffffff;
+      --surface-soft: #f0f0f0;
+      --ink:          #111111;
+      --ink-soft:     #444444;
+      --muted:        #888888;
+      --line:         #e0e0e0;
+      --link:         #111111;
+      --link-hover:   #555555;
+      --radius:       14px;
+      --radius-sm:    9px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 3px 8px rgba(0,0,0,.04);
+      --shadow-md: 0 6px 20px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.05);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.10), 0 24px 60px rgba(0,0,0,.07);
+    }
 
-  <meta name="author" content="Yuheng Li">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:description" content="Personal webpage of Yuheng Li." />
-    <link rel="stylesheet" href="jemdoc.css" type="text/css" />
-    <!-- <link rel="icon" type="image/png" href="./images/duck2.png" /> -->
-    <link rel="icon" type="image/png" href="./images/adobe-logo.png" />
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <style>
-        #profile_photo {
-            max-width: 300px;
-            transition: all 0.3s ease;
-        }
-        #profile_photo:hover {
-            content: url('images/yuheng-and-mam.jpg');
-        }
-        
-        /* Paper tabs styling */
-        .paper-tabs {
-            display: inline;
-            margin-left: 10px;
-            font-size: 15px;
-        }
-        
-        .tab-link {
-            cursor: pointer;
-            color: #999;
-            text-decoration: none;
-        }
-        
-        .tab-separator {
-            color: #000;
-        }
-    </style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--link); text-decoration: none; transition: color .18s; }
+    a:hover { color: var(--link-hover); }
+    strong { font-weight: 600; color: var(--ink); }
+
+    /* ── Layout ── */
+    .layout {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* ── Profile card (top) ── */
+    .profile-section {
+      display: flex;
+      flex-direction: row;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .profile-photo {
+      width: 240px;
+      flex-shrink: 0;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transform: rotate(0.3deg);
+      transition: transform .4s cubic-bezier(.2,.8,.2,1);
+    }
+    .profile-photo:hover { transform: rotate(0deg) scale(1.01); }
+    .profile-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .profile-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .profile-name em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink-soft);
+    }
+
+    .profile-role {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .profile-bio {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+    }
+    .profile-bio:last-of-type { margin-bottom: 16px; }
+    .profile-bio a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--line); }
+    .profile-bio a:hover { color: var(--ink); }
+
+    .profile-callout {
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-sm);
+      transition: transform .16s, border-color .16s, color .16s;
+    }
+    .profile-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+    .profile-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ── Main ── */
+    .content { min-width: 0; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 8px 0 28px;
+    }
+
+    /* ── Research area ── */
+    .research-area { margin-bottom: 44px; scroll-margin-top: 20px; }
+
+    .area-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .area-tag::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: currentColor;
+      display: inline-block;
+    }
+
+    .area-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 21px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .area-desc {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+
+    /* ── Paper card (selected highlights) ── */
+    .paper-card {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 18px;
+      margin-bottom: 10px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .paper-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: transparent;
+      transition: background .2s;
+    }
+    .paper-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(0,0,0,.1); }
+    .paper-card:hover::before { background: var(--ink); }
+    .paper-card.in-view { opacity: 1; transform: translateY(0); }
+
+    .paper-thumb {
+      width: 168px; height: 126px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--surface-soft);
+      flex-shrink: 0;
+    }
+    .paper-thumb a { display: block; width: 100%; height: 100%; }
+    .paper-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      transition: transform .4s cubic-bezier(.2,.8,.2,1);
+    }
+    .paper-card:hover .paper-thumb img { transform: scale(1.05); }
+
+    .paper-info { min-width: 0; }
+
+    .paper-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 16.5px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--ink);
+      display: inline-block;
+      margin-bottom: 6px;
+      transition: color .15s;
+    }
+    .paper-card a:hover .paper-title { color: var(--ink-soft); }
+
+    .paper-authors {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .paper-venue {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: italic;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .paper-venue strong { font-style: normal; font-weight: 600; color: var(--ink-soft); font-size: 12.5px; }
+
+    .paper-award {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .paper-links {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .paper-links a {
+      color: var(--ink-soft);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: var(--line);
+    }
+    .paper-links a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+
+    /* ── Publications list (text only) ── */
+    .pub-section { margin-top: 56px; }
+
+    .pub-section .section-header { margin-bottom: 0; }
+    .pub-section .pub-links { display: none; }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 0 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--surface-soft);
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-num {
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 3px;
+      text-align: right;
+      font-feature-settings: "tnum";
+    }
+
+    .pub-body { min-width: 0; }
+
+    .pub-title {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      display: inline;
+    }
+    a.pub-title:hover { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+
+    .pub-authors {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+
+    .pub-venue {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 2px;
+    }
+    .pub-venue strong { font-style: normal; font-weight: 600; color: var(--ink-soft); }
+
+    .pub-links {
+      margin-top: 4px;
+      font-size: 12.5px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pub-links a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: var(--line);
+      font-weight: 500;
+    }
+    .pub-links a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+
+    /* ── Theme block (image + text) ── */
+    .theme-block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .theme-image {
+      width: 60%;
+      aspect-ratio: 2/1;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .theme-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .theme-intro {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .paper-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .paper-list li {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      padding-left: 14px;
+      border-left: 2px solid var(--line);
+    }
+    .paper-list li a {
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .paper-list li a:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .55s cubic-bezier(.2,.8,.2,1) both; }
+    .d1 { animation-delay: .06s; }
+    .d2 { animation-delay: .13s; }
+    .d3 { animation-delay: .20s; }
+    .d4 { animation-delay: .27s; }
+    .d5 { animation-delay: .34s; }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .layout { padding: 24px 16px 64px; gap: 32px; }
+      .profile-section { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px; }
+      .profile-photo { width: 120px; aspect-ratio: 1/1; }
+      .profile-links { justify-content: center; }
+      .theme-block { grid-template-columns: 1fr; }
+      .theme-image { width: 100%; aspect-ratio: 16/9; position: static; }
+      .section-title { font-size: 24px; }
+      .pub-item { grid-template-columns: 1fr; }
+      .pub-num { display: none; }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container" style="max-width: 900px;">
-    <div class="section">
-      <!-- <div id="profile" class="box" style="width: 100%"> -->
-<!--       <div id="profile" class="box" style="width: 750px;">
-        <p style="text-align:center">
-          <name>Yuheng Li</name>
-        </p>
-        <p> -->
-          <!-- Hi, I am a computer science Ph.D. student at University of Wisconsin-Madison, advised by <a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a>. Generally, I am interested in <b>controllable and multimodal image generation and manipulation.</b> -->
-          <!-- Hi! I am a research scientist at <a href= -->
-<!--         "https://research.adobe.com/"> Adobe Research</a>.
-        <br>
-        Before joining Adobe, I got my PhD in Computer Science from University of Wisconsin-Madison in 2024, under the supervision <a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a>.
-        <br>
-        <br>
+<div class="layout">
 
-        Generally, I am interested in <b>controllable and multimodal image generation and manipulation</b>.
-        <br>
-        <font color="red"> Feel free to contact me for collaboration.</font>  -->
-          <!-- <br> -->
-          <!-- <br> -->
-          <!-- <font color="red"> I will graduate in 2024 summer and will join Adobe Research, feel free to contact me for collaboration.</font>  -->
-<!--         </p>
-        <p style="text-align:center">
-          <a href="mailto:yuhli@adobe.com">Email</a> &nbsp;/&nbsp;
-          <a href="files/CV.pdf">CV</a> &nbsp;/&nbsp;
-          <a href="https://scholar.google.com/citations?user=ZphbAXEAAAAJ&hl=en">Google Scholar</a> 
-        </p>
-      </div>
-      <div class="box" style="width: 180px; float: left; padding: 30px 0 0 0;"> -->
-        <!-- <img id="profile_photo" alt="profile photo" src="images/photo.jpeg"> -->
-        <!-- <img id="profile_photo" alt="profile photo" src="images/yosemite.jpg"> -->
-        <!-- <img id="profile_photo" alt="profile photo" src="images/cvpr2024.jpg"> -->
-      <!-- </div> -->
-    <!-- </div> -->
-    <center>
-    <table style="max-width: 900px;">
-      <tr>
-        <td>
-          <div class="section">
-            <!-- <div id="profile" class="box"> -->
-              <p style="text-align:center">
-                <name>Yuheng Li</name>
-              </p>
-              <p>
-                Hi! I am a research scientist at <a href="https://research.adobe.com/">Adobe Research</a>.
-                <br>
-                Before joining Adobe, I got my PhD in Computer Science from University of Wisconsin-Madison in 2024, under the supervision <a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a>.
-                <br>
-                <br>
-                I am broadly interested in two main areas: (1) <b>personalized AI systems</b> that leverage user memory to create more tailored and context-aware experiences, and (2) <b>controllable generative models</b>, with recent focus on developing unified multimodal models and advancing video generation capabilities.
-                <br>
-                <font color="red">Feel free to contact me for collaboration.</font>
-                <br>
-              </p>
-              <!-- <i><p style="font-size: 70%;text-align: right;">(Photo credit: <a href="https://en.wikipedia.org/wiki/Bucky_Badger" style="font-size: inherit;">Bucky</a>, taken by <a href="https://anhddo.github.io" target="blank" style="font-size: inherit;">Anh Do</a>, at <a href='https://goo.gl/maps/N85trQSczcrS32Fi6' style="font-size: inherit;">Henry Vilas Zoo</a> (2022).&nbsp&nbsp&nbsp&nbsp&nbsp</p></i> -->
-
-
-              <p style="text-align:center">
-                <a href="mailto:yuhli@adobe.com">Email</a> &nbsp;/&nbsp;
-                <a href="files/CV.pdf">CV</a> &nbsp;/&nbsp;
-                <a href="https://scholar.google.com/citations?user=ZphbAXEAAAAJ&hl=en">Google Scholar</a>
-              </p>
-              <!-- <p style="font-size:80%;color:#A9A9A9"><i>(Photo credit: The "silly" cat in the photo is Mam -- <a href="https://thaoshibe.github.io/" style="font-size:95%">Thao</a>'s cat. He appears in 02 of my papers. Can you spot him? ;)) -->
-              </p>
-            </i>
-            <!-- </div> -->
-          </div>
-        </td>
-        <td>
-            <!-- <img id="profile_photo" alt="profile photo" src="images/yosemite.jpg" style='max-width: 300px;'> -->
-            <!-- <img id="profile_photo" alt="profile photo" src="images/yosemite3.jpg"> -->
-            <img src="images/yosemite3.jpg" style="max-width: 600px;">
-            <!-- <img src="images/yosemite3.jpg" 
-     onmouseover="this.src='yosemite3.jpg'" 
-     onmouseout="this.src='images/yosemite3.jpg'" 
-     style="max-width:300px;">
-            <br> -->
-
-          
-        </td>
-      </tr>
-    </table>
+  <!-- ── PROFILE ── -->
+  <section class="profile-section fade-up">
+    <div class="profile-photo">
+      <img src="images/yosemite3.jpg" alt="Yuheng Li">
     </div>
-    <!-- <br> -->
-    <!-- <br> -->
-    <br>
-  </center>
-    <div class="section">
-      <heading>Research</heading>
-      <span class="paper-tabs">
-        [ <span class="tab-link active" data-filter="selected">Selected</span>
-        <span class="tab-separator"> | </span>
-        <span class="tab-link" data-filter="all">All</span> ]
-      </span>
-      <br
-      <br>
-            <!-- <br> -->
-        <div class="container paper-item" data-selected="true">
-          <div class="box left">
-            <a href='https://arxiv.org/abs/2603.20422'>
-            <img src='https://arxiv.org/html/2603.20422v1/figures/sunburst_chart.png' style="height: 150px; width: auto;"></a>
-          </div>
-          <div class="box right">
-            <a href="https://arxiv.org/abs/2603.20422" target="_blank">
-                <papertitle>PEARL: Personalized Streaming Video Understanding Model</papertitle>
-            </a>
-            <br>
-            Yuanhong Zheng, Ruichuan An, Xiaopeng Lin, Yuxing Liu, Sihan Yang, Huanyu Zhang, Haodong Li, Qintong Zhang, Renrui Zhang, Guopeng Li, Yifan Zhang, <strong>Yuheng Li</strong>, Wentao Zhang
-            <br>
-            <em>arXiv</em>, 2026
-            <br>
-            [<a href="https://arxiv.org/abs/2603.20422" target=&ldquo;blank&rdquo;>Paper</a>, <a href="https://github.com/Yuanhong-Zheng/PEARL" target=&ldquo;blank&rdquo;>Code</a>]
-            <p></p>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <!-- <br> -->
-        <div class="container paper-item" data-selected="true">
-          <div class="box left">
-            <a href='https://thaoshibe.github.io/relsim/'>
-            <img src='./images/relsim.png'></a>
-            <!-- <img src='./images/bear-xiao.png'style="height: 150px; width: auto;"></a> -->
-          </div>
-          <div class="box right">
-            <a href="https://arxiv.org/abs/2512.07833" target="_blank">
-                <papertitle>Relational Visual Similarity</papertitle>
-            </a>
-            <br>
-            Thao Nguyen, Sicheng Mo, Krishna Kumar Singh, Yilin Wang, Jing Shi, Nicholas Kolkin, Eli Shechtman, Yong Jae Lee, <strong>Yuheng Li</strong>
-            <br>
-            <em>Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2026
-            <br>
-            [<a href="https://thaoshibe.github.io/relsim/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2512.07833" target=&ldquo;blank&rdquo;>Paper</a>, <a href="https://github.com/thaoshibe/relsim" target=&ldquo;blank&rdquo;>Code</a>]
-            <p></p>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <!-- <br> -->
-            <!-- <br> -->
-        <div class="container paper-item" data-selected="true">
-          <div class="box left">
-            <a href='https://sichengmo.github.io/GroupDiff/'>
-            <img src='https://sichengmo.github.io/GroupDiff/assets/teaser.jpg'></a>
-            <!-- <img src='./images/phew.png' style="height: 150px; width: auto;"></a> -->
-          </div>
-          <div class="box right">
-            <a href="https://arxiv.org/abs/2512.10954" target="_blank">
-                <papertitle>Group Diffusion: Enhancing Image Generation by Unlocking Cross-Sample Collaboration</papertitle>
-            </a>
-            <br>
-            Sicheng Mo, Thao Nguyen, Richard Zhang, Nick Kolkin, Siddharth Srinivasan Iyer, Eli Shechtman, Krishna Kumar Singh, Yong Jae Lee, Bolei Zhou, <strong>Yuheng Li</strong>
-            <br>
-            <em>Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2026
-            <br>
-            [<a href="https://sichengmo.github.io/GroupDiff/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2512.10954" target=&ldquo;blank&rdquo;>Paper</a>]
-            <p></p>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <!-- <br> -->
-        <div class="container paper-item" data-selected="false">
-          <div class="box left">
-            <a href='https://nupurkmr9.github.io/npedit/'>
-            <img src='./images/np-edit.png' style="height: 150px; width: auto;"></a>
-          </div>
-          <div class="box right">
-            <a href="https://arxiv.org/abs/2510.14978" target="_blank">
-                <papertitle>Learning an Image Editing Model without Image Editing Pairs</papertitle>
-            </a>
-            <br>
-            Nupur Kumari, Sheng-Yu Wang, Nanxuan Zhao, Yotam Nitzan, <strong>Yuheng Li</strong>, Krishna Kumar Singh, Richard Zhang, Eli Shechtman, Jun-Yan Zhu, Xun Huang
-            <br>
-            <em>International Conference on Learning Representations</em> (<strong>ICLR</strong>), 2026
-            <br>
-            [<a href="https://nupurkmr9.github.io/npedit/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2510.14978" target=&ldquo;blank&rdquo;>Paper</a>]
-            <p></p>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <!-- <br> -->
-        <div class="container paper-item" data-selected="false">
-          <div class="box left">
-            <a href='https://danielchyeh.github.io/x-planner/'>
-            <img src='./images/x-planner.png' style="height: 150px; width: auto;"></a>
-          </div>
-          <div class="box right">
-            <a href="https://arxiv.org/abs/2507.05259" target="_blank">
-                <papertitle>Beyond Simple Edits: X-Planner for Complex Instruction-Based Image Editing</papertitle>
-            </a>
-            <br>
-            Chun-Hsiao Yeh, Yilin Wang, Nanxuan Zhao, Richard Zhang, <strong>Yuheng Li</strong>, Yi Ma, Krishna Kumar Singh
-            <br>
-            <em>AAAI Conference on Artificial Intelligence</em> (<strong>AAAI</strong>), 2025
-            <br>
-            [<a href="https://danielchyeh.github.io/x-planner/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2507.05259" target=&ldquo;blank&rdquo;>Paper</a>]
-            <p></p>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <!-- <br> -->
-      <div class="container paper-item" data-selected="true">
-        <div class="box left">
-          <a href='https://sichengmo.github.io/XFusion/'>
-          <img src='./images/xfusion.png'>
-          <!-- <img src='./images/mua.png' style="height: 150px; width: auto;"> -->
+    <div class="profile-info">
+      <h1 class="profile-name">Yuheng Li</h1>
+      <p class="profile-bio">Hi! I am a research scientist at Adobe Research. Before joining Adobe, I got my PhD in Computer Science from University of Wisconsin&ndash;Madison in 2024, under the supervision of <a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a>.</p>
+      <p class="profile-bio">I am broadly interested in two main areas: (1) personalized AI systems that leverage user memory to create more tailored and context-aware experiences, and (2) controllable generative models, with recent focus on developing unified multimodal models and advancing video generation capabilities.</p>
+      <p class="profile-bio">Feel free to contact me for collaboration.</p>
+      <nav class="profile-links">
+        <a class="profile-link" href="mailto:yuhli@adobe.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+          yuhli@adobe.com
         </a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2504.20996" target="_blank">
-              <papertitle>X-Fusion: Introducing New Modality to Frozen Large Language Models</papertitle>
-          </a>
-          <br>
-          Sicheng Mo, Thao Nguyen, Xun Huang, Siddharth Srinivasan Iyer, Yijun Li, Yuchen Liu, Abhishek Tandon, Eli Shechtman, Krishna Kumar Singh, Yong Jae Lee, Bolei Zhou, <strong>Yuheng Li</strong>
-          <br>
-          <em>IEEE International Conference on Computer Vision</em>, (<strong>ICCV</strong>), 2025
-          <br>
-          <i style="color:#ee2400">🏆 Best paper at CVPR 2025 Workshop: "Transformers for Vision (T4V)</i>
-          <br>
-          [<a href="https://sichengmo.github.io/XFusion/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://sichengmo.github.io/XFusion/" target=&ldquo;blank&rdquo;>Code</a>, <a href="https://arxiv.org/abs/2504.20996" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-          <br>
-        </div>
-      </div>
-      <div class="clear"></div>
-      <!-- <br> -->
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <a href='https://glitchinthematrix.github.io/vins/'>
-          <img src='https://krsingh.cs.ucdavis.edu/krishna_files/paper_images/vins_teaser.png' style="height: 150px; width: auto;"></a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2503.17539" target="_blank">
-              <papertitle>Generating, Fast and Slow: Scalable Parallel Video Generation with Video Interface Networks</papertitle>
-          </a>
-          <br>
-          Bhishma Dedhia, David Bourgin, Krishna Kumar Singh, <strong>Yuheng Li</strong>, Yan Kang, Zhan Xu, Niraj K. Jha, Yuchen Liu
-          <br>
-          <em>IEEE International Conference on Computer Vision</em>, (<strong>ICCV</strong>), 2025
-          <br>
-          [<a href="https://glitchinthematrix.github.io/vins/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2503.17539" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-      <!-- <br> -->
-      <div class="container paper-item" data-selected="true">
-        <div class="box left">
-          <a href='https://thaoshibe.github.io/YoChameleon/'>
-          <img src='./images/yochameleon.png' style="height: 150px; width: auto;"></a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2406.09400" target="_blank">
-              <papertitle>Yo'Chameleon: Personalized Vision and Language Generation</papertitle>
-          </a>
-          <br>
-          Thao Nguyen, Krishna Kumar Singh, Jing Shi, Trung Bui, Yong Jae Lee, <strong>Yuheng Li</strong>
-          <br>
-          <em>Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2025
-          <br>
-          [<a href="https://thaoshibe.github.io/YoChameleon/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://github.com/thaoshibe/YoChameleon" target=&ldquo;blank&rdquo;>Code</a>, <a href="https://arxiv.org/abs/2504.20998" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-      <div class="container paper-item" data-selected="true">
-        <div class="box left">
-          <a href='https://thaoshibe.github.io/YoLLaVA/'>
-          <img src='./images/yollava.png' style="height: 150px; width: auto;"></a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2406.09400" target="_blank">
-              <papertitle>Yo'LLaVA: Your Personalized Language and Vision Assistant</papertitle>
-          </a>
-          <br>
-          Thao Nguyen, Haotian Liu, <strong>Yuheng Li</strong>, Mu Cai, Utkarsh Ojha, Yong Jae Lee
-          <br>
-          <em>Neural Information Processing Systems</em> (<strong>NeurIPS</strong>), 2024
-          <br>
-          [<a href="https://thaoshibe.github.io/YoLLaVA/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://github.com/WisconsinAIVision/YoLLaVA" target=&ldquo;blank&rdquo;>Code</a>, <a href="https://arxiv.org/abs/2406.09400" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-          <!-- <br> -->
-        </div>
-      </div>
-
-      <!-- <br> -->
-      <div class="clear"></div>
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <a href='https://yuheng-li.github.io/LLaVA-score/'><img src='./images/llava-score.png' style="height: 150px; width: auto;"></a>
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2503.17539" target="_blank">
-              <papertitle>Removing Distributional Discrepancies in Captions Improves Image-Text Alignment</papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>, Haotian Liu, Mu Cai, Yijun Li, Eli Shechtman, Zhe Lin, Yong Jae Lee, Krishna Kumar Singh,
-          <br>
-          <em>European Conference on Computer Vision</em>, (<strong>ECCV</strong>), 2024
-          <br>
-          [<a href="https://yuheng-li.github.io/LLaVA-score/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://arxiv.org/abs/2410.00905" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-      <!-- <br> -->
-
-      <div class="container paper-item" data-selected="true">
-        <div class="box left">
-          <img src='https://pages.cs.wisc.edu/~yongjaelee/IMAGES/llava_v15.jpeg' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2310.03744" target="_blank">
-              <papertitle>Improved Baselines with Visual Instruction Tuning (LLaVA-1.5)</papertitle>
-          </a>
-          <br>
-          Haotian Liu, Chunyuan Li, <strong>Yuheng Li</strong>, Yong Jae Lee
-          <br>
-          <em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2024
-          <br>
-          [<a href="https://llava-vl.github.io/" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://github.com/haotian-liu/LLaVA" target=&ldquo;blank&rdquo;>Code</a>, <a href="https://arxiv.org/abs/2310.03744" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='https://pages.cs.wisc.edu/~yongjaelee/IMAGES/edit-one-for-all.jpg' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2401.10219" target="_blank">
-              <papertitle>Edit One for All: Interactive Batch Image Editing</papertitle>
-          </a>
-          <br>
-          Thao Nguyen, Utkarsh Ojha, <strong>Yuheng Li</strong>, Haotian Liu, Yong Jae Lee
-
-          <br>
-          <em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2024
-          <br>
-          [<a href="https://thaoshibe.github.io/edit-one-for-all" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://github.com/thaoshibe/edit-one-for-all" target=&ldquo;blank&rdquo;>Code</a>, <a href="https://arxiv.org/abs/2401.10219" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/pacgen.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2306.17154" target="_blank">
-              <papertitle>Generate Anything Anywhere in Any Scene </papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>, Haotian Liu, Yangming Wen, Yong Jae Lee
-          <br>
-          <em>arxiv</em>, 2023
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/svg_llm.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2306.06094" target="_blank">
-              <papertitle>Leveraging Large Language Models for Scalable Vector Graphics-Driven Image Understanding</papertitle>
-          </a>
-          <br>
-          Mu Cai*, Zeyi Huang*, <strong>Yuheng Li</strong>, Haohan Wang, and Yong Jae Lee
-          <br>
-          (*equal contribution)
-          <br>
-          <em>IEEE Winter Conference on Applications of Computer Vision</em> (<b>WACV</b>), 2025
-          <p></p>
-        </div>
-      </div>
-      
-      <div class="clear"></div>
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/vii.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2307.14331" target="_blank">
-              <papertitle>Visual Instruction Inversion: Image Editing via Visual Prompting</papertitle>
-          </a>
-          <br>
-          Thao Nguyen, <strong>Yuheng Li</strong>, Utkarsh Ojha, Yong Jae Lee
-          <br>
-          <em>Neural Information Processing Systems</em> (<b>NeurIPS</b>), 2023
-          <br>
-          [<a href="https://thaoshibe.github.io/visii" target=&ldquo;blank&rdquo;>ProjectPage</a>, <a href="https://github.com/thaoshibe/visii" target=&ldquo;blank&rdquo;>Code</a>, <a href="https://arxiv.org/abs/2307.14331" target=&ldquo;blank&rdquo;>Paper</a>]
-          <p></p>
-        </div>
-      </div>
-      
-      
-      <div class="clear"></div>
-
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/kd.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="#" target="_blank">
-              <papertitle>What Knowledge Gets Distilled in Knowledge Distillation?</papertitle>
-          </a>
-          <br>
-          Utkarsh Ojha*, <strong>Yuheng Li*</strong>, Anirudh Sundara Rajan*, Yingyu Liang, Yong Jae Lee
-          <br>
-          (*equal contribution)
-          <br>
-          <em>Neural Information Processing Systems</em> (<b>NeurIPS</b>), 2023
-          <p></p>
-        </div>
-      </div>
-      <div class="clear"></div>
-
- 
-
-      
-      <div class="container paper-item" data-selected="true">
-        <div class="box left">
-          <img src='images/gligen.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2301.07093" target="_blank">
-              <papertitle>GLIGEN: Open-Set Grounded Text-to-Image Generation </papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>,  Haotian Liu, Qingyang Wu, Fangzhou Mu, Jianwei Yang, Jianfeng Gao, Chunyuan Li*, Yong Jae Lee*
-          <br>
-          (*equal advising)
-          <br>
-          <em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2023
-          <br>
-          [<a href="https://arxiv.org/abs/2301.07093" target="_blank">arXiv</a>] [<a href="https://github.com/gligen/GLIGEN" target="_blank">code</a>] [<a href="https://gligen.github.io/" target="_blank">Project Page</a>] [<a href="https://huggingface.co/spaces/gligen/demo" target="_blank">Demo</a>]  [<a href="https://www.youtube.com/watch?v=-MCkU7IAGKs&ab_channel=ComputerVisionintheWild%28CVinW%29" target="_blank">Youtube</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-      
-      
-      
-      <div class="clear"></div>
-      
-      
-      <div class="container paper-item" data-selected="true">
-        <div class="box left">
-          <img src='images/fake_detection.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2302.10174" target="_blank">
-              <papertitle>Towards Universal Fake Image Detectors that Generalize Across Generative Models </papertitle>
-          </a>
-          <br>
-          Utkarsh Ojha*, <strong>Yuheng Li*</strong>, Yong Jae Lee
-          <br>
-          (*equal contribution)
-          <br>
-          <em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2023
-          <p></p>
-        </div>
-      </div>
-
-
-
-      <div class="clear"></div>
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/anti-aliasing.gif' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="#" target="_blank">
-              <papertitle>Delving Deeper into Anti-aliasing in ConvNets</papertitle>
-          </a>
-          <br>
-          Xueyan Zou, Fanyi Xiao, Zhiding Yu, <strong>Yuheng Li</strong>, and Yong Jae Lee
-          <br>
-          <em>International Journal of Computer Vision</em> (<strong>IJCV</strong>), 2022
-          <p></p>
-        </div>
-      </div>
-
-
-
-
-      <div class="clear"></div>
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/contrasfill.png'>
-        </div>
-        <div class="box right">
-          <a href="#" target="_blank">
-              <papertitle>Contrastive Learning for Diverse Disentangled Foreground Generation</papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>, Yijun Li, Jingwan Lu, Eli Shechtman, Yong Jae Lee, Krishna Kumar Singh
-          <br>
-          <em>Proceedings of the European Conference on Computer Vision</em> (<strong>ECCV</strong>), 2022
-          <p></p>
-        </div>
-      </div>
-
-
-
-      <div class="clear"></div>
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/giraffehd.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2203.14954" target="_blank">
-              <papertitle>GIRAFFE HD: A High-Resolution 3D-aware Generative Model</papertitle>
-          </a>
-          <br>
-          Yang Xue, <strong>Yuheng Li</strong>, Krishna Kumar Singh, Yong Jae Lee
-          <br>
-          <em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2022
-          <br>
-          [<a href="https://arxiv.org/abs/2203.14954" target="_blank">arXiv</a>] [<a href="https://github.com/AustinXY/GIRAFFEHD" target="_blank">code</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-
-
-      <div class="clear"></div>
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/collageGAN.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/2110.04281v1" target="_blank">
-              <papertitle>Collaging Class-specific GANs for Semantic Image Synthesis</papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>, Yijun Li, Jingwan Lu, Eli Shechtman, Yong Jae Lee, Krishna Kumar Singh
-          <br>
-          <em>IEEE International Conference on Computer Vision</em> (<strong>ICCV</strong>), 2021
-          <br>
-          [<a href="https://arxiv.org/abs/2110.04281v1" target="_blank">arXiv</a>] [<a href="https://yuheng-li.github.io/CollageGAN/" target="_blank">project</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-
-
-      <div class="clear"></div>
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/partgan.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://www.bmvc2021-virtualconference.com/conference/papers/paper_0057.html" target="_blank">
-              <papertitle>PartGAN: Unsupervised Part Decomposition for Image Generation and Segmentation </papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>,  Krishna Kumar Singh, Yong Jae Lee 
-          <br>
-          <em>British Machine Vision Conference</em> (<strong>BMVC</strong>), 2021
-          <br>
-          <p></p>
-        </div>
-      </div>
-
-
-
-      <div class="clear"></div> 
-
-
-
-      <div class="container paper-item" data-selected="false">
-        <div class="box left">
-          <img src='images/MixNMatch.png' style="height: 150px; width: auto;">
-        </div>
-        <div class="box right">
-          <a href="https://arxiv.org/abs/1911.11758" target="_blank">
-              <papertitle>MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation </papertitle>
-          </a>
-          <br>
-          <strong>Yuheng Li</strong>,  Krishna Kumar Singh, Utkarsh Ojha, Yong Jae Lee 
-          <br>
-          <em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2020
-          <br>
-          [<a href="https://arxiv.org/abs/1911.11758" target="_blank">arXiv</a>] [<a href="https://github.com/Yuheng-Li/MixNMatch" target="_blank">code</a>]
-          <br>
-          <p></p>
-        </div>
-      </div>
-
+        <a class="profile-link" href="files/CV.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          Curriculum Vitae
+        </a>
+        <a class="profile-link" href="https://scholar.google.com/citations?user=ZphbAXEAAAAJ&hl=en" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          Google Scholar
+        </a>
+      </nav>
     </div>
-  </div>
-  <br>
-<div class="clear"></div> 
-<!-- <hr> -->
-<div class="container">
-  <center>
-  <div id="footer-text">You've reached the end.
-  </div>
-</center>
+  </section>
+
+  <!-- ── MAIN ── -->
+  <main class="content">
+
+    <div class="section-header" style="margin-bottom: 28px;">
+      <h2 class="section-title">Research</h2>
+    </div>
+
+    <!-- Theme 1 -->
+    <div class="research-area" id="personalized">
+      <h3 class="area-title">Personalized AI Systems</h3>
+
+      <p class="theme-intro">
+        Building AI systems that learn personal visual concepts and maintain long-term memory for tailored, user-specific experiences.
+      </p>
+      <div class="theme-block">
+        <div class="theme-image">
+          <img src="images/theme-personalization.png" alt="Personalized AI" onerror="this.parentElement.innerHTML='placeholder'">
+        </div>
+        <ul class="paper-list">
+          <li>
+            <a href="https://thaoshibe.github.io/camroll/" target="_blank">CamRoll</a>:
+            A hierarchical-memory agent for personal camera roll.
+          </li>
+          <li>
+            <a href="https://viettmab.github.io/visualmem-page/" target="_blank">VisualMem</a>:
+            A hybrid visual&ndash;text memory architecture for personal visual memory.
+          </li>
+          <li>
+            <a href="https://arxiv.org/abs/2603.20422" target="_blank">PEARL</a>:
+            A personalized streaming video understanding model with persistent user memory.
+          </li>
+          <li>
+            <a href="https://thaoshibe.github.io/YoChameleon/" target="_blank">Yo'Chameleon</a> /
+            <a href="https://thaoshibe.github.io/YoLLaVA/" target="_blank">Yo'LLaVA</a>:
+            Embedding user-defined visual concepts into multimodal LLMs for personalized recognition and generation.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Theme 2 -->
+    <div class="research-area" id="controllable">
+      <h3 class="area-title">Controllable Generative Models</h3>
+
+      <p class="theme-intro">
+        Building controllable generative models with spatially grounded image synthesis and seamless multimodal integration.
+      </p>
+      <div class="theme-block">
+        <div class="theme-image">
+          <img src="images/theme-controllable.png" alt="Controllable Generation" onerror="this.parentElement.innerHTML='placeholder'">
+        </div>
+        <ul class="paper-list">
+          <li>
+            <a href="https://gligen.github.io/" target="_blank">GLIGEN</a>:
+            Grounded text-to-image generation conditioned on open-set spatial inputs including boxes, keypoints, and reference images.
+          </li>
+          <li>
+            <a href="https://sichengmo.github.io/XFusion/" target="_blank">X-Fusion</a>:
+            Grafting visual understanding and generation onto frozen LLMs, preserving language capabilities while enabling multimodal reasoning.
+          </li>
+          <li>
+            UniTemp:
+            Autoregressive distillation for video generation in any temporal order, enabling flexible non-sequential video synthesis.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── All Publications (text only) ── -->
+    <section class="pub-section">
+      <div class="section-header">
+        <h2 class="section-title">Publications</h2>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://thaoshibe.github.io/camroll/" target="_blank">CamRoll: Personal AI Agent for Camera Roll VQA</a>
+          <div class="pub-authors">Thao Nguyen, Krishna Kumar Singh, Donghyun Kim, Yong Jae Lee*, <strong>Yuheng Li</strong>* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>arXiv</em>, 2026</div>
+          <div class="pub-links"><a href="https://thaoshibe.github.io/camroll/" target="_blank">Project</a> <a href="https://thaoshibe.github.io/camroll/page/demo.html" target="_blank">Demo</a> <a href="https://github.com/thaoshibe/camroll" target="_blank">Code</a> <a href="https://arxiv.org/abs/2606.05275" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://viettmab.github.io/visualmem-page/" target="_blank">VisualMem: Personal Visual Memory from Explicit and Implicit Evidence</a>
+          <div class="pub-authors">Viet Nguyen, Thao Nguyen, Vishal M. Patel*, <strong>Yuheng Li</strong>* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>arXiv</em>, 2026</div>
+          <div class="pub-links"><a href="https://viettmab.github.io/visualmem-page/" target="_blank">Project</a> <a href="https://github.com/viettmab/visualmem" target="_blank">Code</a> <a href="https://arxiv.org/abs/2605.28806" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2603.20422" target="_blank">PEARL: Personalized Streaming Video Understanding Model</a>
+          <div class="pub-authors">Yuanhong Zheng, Ruichuan An, Xiaopeng Lin, Yuxing Liu, Sihan Yang, Huanyu Zhang, Haodong Li, Qintong Zhang, Renrui Zhang, Guopeng Li, Yifan Zhang, <strong>Yuheng Li</strong>*, Wentao Zhang* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>arXiv</em>, 2026</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2603.20422" target="_blank">Paper</a> <a href="https://github.com/Yuanhong-Zheng/PEARL" target="_blank">Code</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://sichengmo.github.io/GroupDiff/" target="_blank">Group Diffusion: Enhancing Image Generation by Unlocking Cross-Sample Collaboration</a>
+          <div class="pub-authors">Sicheng Mo, Thao Nguyen, Richard Zhang, Nick Kolkin, Siddharth Srinivasan Iyer, Eli Shechtman, Krishna Kumar Singh, Yong Jae Lee, Bolei Zhou*, <strong>Yuheng Li</strong>* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2026</div>
+          <div class="pub-links"><a href="https://sichengmo.github.io/GroupDiff/" target="_blank">Project</a> <a href="https://arxiv.org/abs/2512.10954" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://thaoshibe.github.io/relsim/" target="_blank">Relational Visual Similarity</a>
+          <div class="pub-authors">Thao Nguyen, Sicheng Mo, Krishna Kumar Singh, Yilin Wang, Jing Shi, Nicholas Kolkin, Eli Shechtman, Yong Jae Lee*, <strong>Yuheng Li</strong>* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2026</div>
+          <div class="pub-links"><a href="https://thaoshibe.github.io/relsim/" target="_blank">Project</a> <a href="https://arxiv.org/abs/2512.07833" target="_blank">Paper</a> <a href="https://github.com/thaoshibe/relsim" target="_blank">Code</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://nupurkmr9.github.io/npedit/" target="_blank">Learning an Image Editing Model without Image Editing Pairs</a>
+          <div class="pub-authors">Nupur Kumari, Sheng-Yu Wang, Nanxuan Zhao, Yotam Nitzan, <strong>Yuheng Li</strong>, Krishna Kumar Singh, Richard Zhang, Eli Shechtman, Jun-Yan Zhu, Xun Huang</div>
+          <div class="pub-venue"><em>International Conference on Learning Representations</em> (<strong>ICLR</strong>), 2026</div>
+          <div class="pub-links"><a href="https://nupurkmr9.github.io/npedit/" target="_blank">Project</a> <a href="https://arxiv.org/abs/2510.14978" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://thaoshibe.github.io/YoChameleon/" target="_blank">Yo'Chameleon: Personalized Vision and Language Generation</a>
+          <div class="pub-authors">Thao Nguyen, Krishna Kumar Singh, Jing Shi, Trung Bui, Yong Jae Lee*, <strong>Yuheng Li</strong>* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2025</div>
+          <div class="pub-links"><a href="https://thaoshibe.github.io/YoChameleon/" target="_blank">Project</a> <a href="https://github.com/thaoshibe/YoChameleon" target="_blank">Code</a> <a href="https://arxiv.org/abs/2504.20998" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://sichengmo.github.io/XFusion/" target="_blank">X-Fusion: Introducing New Modality to Frozen Large Language Models</a>
+          <div class="pub-authors">Sicheng Mo, Thao Nguyen, Xun Huang, Siddharth Srinivasan Iyer, Yijun Li, Yuchen Liu, Abhishek Tandon, Eli Shechtman, Krishna Kumar Singh, Yong Jae Lee, Bolei Zhou*, <strong>Yuheng Li</strong>* &nbsp;<em>(*equal advising)</em></div>
+          <div class="pub-venue"><em>IEEE International Conference on Computer Vision</em> (<strong>ICCV</strong>), 2025</div>
+          <div class="pub-links"><a href="https://sichengmo.github.io/XFusion/" target="_blank">Project</a> <a href="https://sichengmo.github.io/XFusion/" target="_blank">Code</a> <a href="https://arxiv.org/abs/2504.20996" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://glitchinthematrix.github.io/vins/" target="_blank">Generating, Fast and Slow: Scalable Parallel Video Generation with Video Interface Networks</a>
+          <div class="pub-authors">Bhishma Dedhia, David Bourgin, Krishna Kumar Singh, <strong>Yuheng Li</strong>, Yan Kang, Zhan Xu, Niraj K. Jha, Yuchen Liu</div>
+          <div class="pub-venue"><em>IEEE International Conference on Computer Vision</em> (<strong>ICCV</strong>), 2025</div>
+          <div class="pub-links"><a href="https://glitchinthematrix.github.io/vins/" target="_blank">Project</a> <a href="https://arxiv.org/abs/2503.17539" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://danielchyeh.github.io/x-planner/" target="_blank">Beyond Simple Edits: X-Planner for Complex Instruction-Based Image Editing</a>
+          <div class="pub-authors">Chun-Hsiao Yeh, Yilin Wang, Nanxuan Zhao, Richard Zhang, <strong>Yuheng Li</strong>, Yi Ma, Krishna Kumar Singh</div>
+          <div class="pub-venue"><em>AAAI Conference on Artificial Intelligence</em> (<strong>AAAI</strong>), 2025</div>
+          <div class="pub-links"><a href="https://danielchyeh.github.io/x-planner/" target="_blank">Project</a> <a href="https://arxiv.org/abs/2507.05259" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2306.06094" target="_blank">Leveraging Large Language Models for Scalable Vector Graphics-Driven Image Understanding</a>
+          <div class="pub-authors">Mu Cai, Zeyi Huang, <strong>Yuheng Li</strong>, Haohan Wang, Yong Jae Lee</div>
+          <div class="pub-venue"><em>IEEE Winter Conference on Applications of Computer Vision</em> (<strong>WACV</strong>), 2025</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://thaoshibe.github.io/YoLLaVA/" target="_blank">Yo'LLaVA: Your Personalized Language and Vision Assistant</a>
+          <div class="pub-authors">Thao Nguyen, Haotian Liu, <strong>Yuheng Li</strong>, Mu Cai, Utkarsh Ojha, Yong Jae Lee</div>
+          <div class="pub-venue"><em>Neural Information Processing Systems</em> (<strong>NeurIPS</strong>), 2024</div>
+          <div class="pub-links"><a href="https://thaoshibe.github.io/YoLLaVA/" target="_blank">Project</a> <a href="https://github.com/WisconsinAIVision/YoLLaVA" target="_blank">Code</a> <a href="https://arxiv.org/abs/2406.09400" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://yuheng-li.github.io/LLaVA-score/" target="_blank">Removing Distributional Discrepancies in Captions Improves Image-Text Alignment</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Haotian Liu, Mu Cai, Yijun Li, Eli Shechtman, Zhe Lin, Yong Jae Lee, Krishna Kumar Singh</div>
+          <div class="pub-venue"><em>European Conference on Computer Vision</em> (<strong>ECCV</strong>), 2024</div>
+          <div class="pub-links"><a href="https://yuheng-li.github.io/LLaVA-score/" target="_blank">Project</a> <a href="https://arxiv.org/abs/2410.00905" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://thaoshibe.github.io/edit-one-for-all" target="_blank">Edit One for All: Interactive Batch Image Editing</a>
+          <div class="pub-authors">Thao Nguyen, Utkarsh Ojha, <strong>Yuheng Li</strong>, Haotian Liu, Yong Jae Lee</div>
+          <div class="pub-venue"><em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2024</div>
+          <div class="pub-links"><a href="https://thaoshibe.github.io/edit-one-for-all" target="_blank">Project</a> <a href="https://github.com/thaoshibe/edit-one-for-all" target="_blank">Code</a> <a href="https://arxiv.org/abs/2401.10219" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://llava-vl.github.io/" target="_blank">Improved Baselines with Visual Instruction Tuning (LLaVA-1.5)</a>
+          <div class="pub-authors">Haotian Liu, Chunyuan Li, <strong>Yuheng Li</strong>, Yong Jae Lee</div>
+          <div class="pub-venue"><em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2024</div>
+          <div class="pub-links"><a href="https://llava-vl.github.io/" target="_blank">Project</a> <a href="https://github.com/haotian-liu/LLaVA" target="_blank">Code</a> <a href="https://arxiv.org/abs/2310.03744" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://gligen.github.io/" target="_blank">GLIGEN: Open-Set Grounded Text-to-Image Generation</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Haotian Liu, Qingyang Wu, Fangzhou Mu, Jianwei Yang, Jianfeng Gao, Chunyuan Li, Yong Jae Lee</div>
+          <div class="pub-venue"><em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2023</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2301.07093" target="_blank">arXiv</a> <a href="https://github.com/gligen/GLIGEN" target="_blank">Code</a> <a href="https://gligen.github.io/" target="_blank">Project</a> <a href="https://huggingface.co/spaces/gligen/demo" target="_blank">Demo</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://thaoshibe.github.io/visii" target="_blank">Visual Instruction Inversion: Image Editing via Visual Prompting</a>
+          <div class="pub-authors">Thao Nguyen, <strong>Yuheng Li</strong>, Utkarsh Ojha, Yong Jae Lee</div>
+          <div class="pub-venue"><em>Neural Information Processing Systems</em> (<strong>NeurIPS</strong>), 2023</div>
+          <div class="pub-links"><a href="https://thaoshibe.github.io/visii" target="_blank">Project</a> <a href="https://github.com/thaoshibe/visii" target="_blank">Code</a> <a href="https://arxiv.org/abs/2307.14331" target="_blank">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2205.16004" target="_blank">What Knowledge Gets Distilled in Knowledge Distillation?</a>
+          <div class="pub-authors">Utkarsh Ojha*, <strong>Yuheng Li*</strong>, Anirudh Sundara Rajan*, Yingyu Liang, Yong Jae Lee &nbsp;<em>(*equal contribution)</em></div>
+          <div class="pub-venue"><em>Neural Information Processing Systems</em> (<strong>NeurIPS</strong>), 2023</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2302.10174" target="_blank">Towards Universal Fake Image Detectors that Generalize Across Generative Models</a>
+          <div class="pub-authors">Utkarsh Ojha*, <strong>Yuheng Li*</strong>, Yong Jae Lee &nbsp;<em>(*equal contribution)</em></div>
+          <div class="pub-venue"><em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2023</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2306.17154" target="_blank">Generate Anything Anywhere in Any Scene</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Haotian Liu, Yangming Wen, Yong Jae Lee</div>
+          <div class="pub-venue"><em>arXiv</em>, 2023</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2211.02707" target="_blank">Contrastive Learning for Diverse Disentangled Foreground Generation</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Yijun Li, Jingwan Lu, Eli Shechtman, Yong Jae Lee, Krishna Kumar Singh</div>
+          <div class="pub-venue"><em>European Conference on Computer Vision</em> (<strong>ECCV</strong>), 2022</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/2203.14954" target="_blank">GIRAFFE HD: A High-Resolution 3D-aware Generative Model</a>
+          <div class="pub-authors">Yang Xue, <strong>Yuheng Li</strong>, Krishna Kumar Singh, Yong Jae Lee</div>
+          <div class="pub-venue"><em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2022</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2203.14954" target="_blank">arXiv</a> <a href="https://github.com/AustinXY/GIRAFFEHD" target="_blank">Code</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://maureenzou.github.io/ddac/" target="_blank">Delving Deeper into Anti-aliasing in ConvNets</a>
+          <div class="pub-authors">Xueyan Zou, Fanyi Xiao, Zhiding Yu, <strong>Yuheng Li</strong>, Yong Jae Lee</div>
+          <div class="pub-venue"><em>International Journal of Computer Vision</em> (<strong>IJCV</strong>), 2022</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://yuheng-li.github.io/CollageGAN/" target="_blank">Collaging Class-specific GANs for Semantic Image Synthesis</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Yijun Li, Jingwan Lu, Eli Shechtman, Yong Jae Lee, Krishna Kumar Singh</div>
+          <div class="pub-venue"><em>IEEE International Conference on Computer Vision</em> (<strong>ICCV</strong>), 2021</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2110.04281v1" target="_blank">arXiv</a> <a href="https://yuheng-li.github.io/CollageGAN/" target="_blank">Project</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://www.bmvc2021-virtualconference.com/conference/papers/paper_0057.html" target="_blank">PartGAN: Unsupervised Part Decomposition for Image Generation and Segmentation</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Krishna Kumar Singh, Yong Jae Lee</div>
+          <div class="pub-venue"><em>British Machine Vision Conference</em> (<strong>BMVC</strong>), 2021</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-num">·</span>
+        <div class="pub-body">
+          <a class="pub-title" href="https://arxiv.org/abs/1911.11758" target="_blank">MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation</a>
+          <div class="pub-authors"><strong>Yuheng Li</strong>, Krishna Kumar Singh, Utkarsh Ojha, Yong Jae Lee</div>
+          <div class="pub-venue"><em>IEEE Conference on Computer Vision and Pattern Recognition</em> (<strong>CVPR</strong>), 2020</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/1911.11758" target="_blank">arXiv</a> <a href="https://github.com/Yuheng-Li/MixNMatch" target="_blank">Code</a></div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="site-footer">You&rsquo;ve reached the end.</footer>
+
+  </main>
 </div>
 
 <script>
-  // Paper filtering functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const paperItems = document.querySelectorAll('.paper-item');
-    
-    function filterPapers(filter) {
-      paperItems.forEach(paper => {
-        const isSelected = paper.getAttribute('data-selected') === 'true';
-        
-        if (filter === 'all') {
-          paper.style.display = 'block';
-        } else if (filter === 'selected' && isSelected) {
-          paper.style.display = 'block';
-        } else if (filter === 'selected' && !isSelected) {
-          paper.style.display = 'none';
-        }
-      });
+  document.addEventListener('DOMContentLoaded', function () {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
+      document.querySelectorAll('.paper-card').forEach(p => io.observe(p));
+    } else {
+      document.querySelectorAll('.paper-card').forEach(p => p.classList.add('in-view'));
     }
-    
-    tabLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        // Remove active class from all links
-        tabLinks.forEach(l => l.classList.remove('active'));
-        
-        // Add active class to clicked link
-        this.classList.add('active');
-        
-        // Filter papers
-        const filter = this.getAttribute('data-filter');
-        filterPapers(filter);
-      });
-    });
-    
-    // Initialize with selected papers shown
-    filterPapers('selected');
   });
 </script>
-
 </body>
 </html>
